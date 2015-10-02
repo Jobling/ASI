@@ -12,7 +12,7 @@ while True:
     if cmd == 'exit':
         break
     else:
-        if cmd=='pop':
+        if cmd == 'pop':
             print "result is:", s.recv(1024)
     
 s.close
