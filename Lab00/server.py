@@ -15,7 +15,6 @@ print 'Connection from', addr
 while True:
     cmd0 = c.recv(1024)
     cmd=cmd0.split(' ')
-    cmd
 
     if cmd[0]=='push':
         calc.pushValue(int(cmd[1]))
