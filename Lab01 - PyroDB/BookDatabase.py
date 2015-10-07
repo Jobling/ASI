@@ -39,14 +39,19 @@ class database:
         f.close()
 
     # Funcao usada para a pesquisa de um livro por identificador
-    def showBook(self, identifier):
+    def showBook(self, book_id):
         for obj in self.shelf:
-            if obj.bid == identifier:
+            if obj.bid == book_id:
                 return obj
         return 'No such book in this shelf!'
 
     # Funcao usada para a listagem de livros, por autor
     def listBooks(self, Author):
+        if not self.shelf:
+            return 'There are no books in this database!'
+        if Author == '*':
+            return self.shelf
+        
         objList = []
         for obj in self.shelf:
             if obj.Author == Author:
@@ -54,7 +59,7 @@ class database:
 
         # Como em python a lista vazia tem um valor 'False', pode-se verificar assim a existencia de elementos
         if not objList:
-            return 'Nao existem livros deste autor'
+            return 'There are no books with such author.'
         else:
             return objList
 
