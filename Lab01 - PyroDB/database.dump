@@ -1,0 +1,50 @@
+(iBookDatabase
+database
+p0
+(dp1
+S'shelf'
+p2
+(lp3
+(ibook
+book
+p4
+(dp5
+S'bid'
+p6
+I0
+sS'Title'
+p7
+S'Harry Potter'
+p8
+sS'Author'
+p9
+S'J. K. Rowling'
+p10
+sba(ibook
+book
+p11
+(dp12
+g6
+I1
+sg7
+S'Crepusculo'
+p13
+sg9
+S'Stephanie Meyer'
+p14
+sba(ibook
+book
+p15
+(dp16
+g6
+I2
+sg7
+S'Memorial do Convento'
+p17
+sg9
+S'Jose Saramago'
+p18
+sbasS'identifier'
+p19
+I3
+sb.
