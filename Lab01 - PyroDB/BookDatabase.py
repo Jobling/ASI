@@ -4,20 +4,20 @@ from book import *
 class database:
     'This is a book database'
     # Construtor do objecto
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         try:
             # Verificacao da existencia de backup da base de dados
-            f = open("database.dump", "r")
-            aux = pickle.load(f)
-            self.shelf = aux.shelf
-            self.identifier = aux.identifier
+            f = open("database" + self.name + ".dump", "r")
+            self.shelf = pickle.load(f)
+            self.identifier = len(self.shelf)
             f.close()
         except Exception:
             # Caso nao exista, esta e inicializada
             self.shelf = []
             self.identifier = 0
 
-    # Funcao usada para insercao de um livro na base de dados
+    # Funcao usada paar insercao de um livro na base de dados
     def insertBook(self, title, author):
         # Verificacao se o livro ja existe
         for b in self.shelf:
@@ -34,8 +34,8 @@ class database:
         self.shelf.append(new_book)
 
         # Criacao de um "backup" da base de dados
-        f = open("database.dump", "w")
-        pickle.dump(self, f)
+        f = open("database" + self.name + ".dump", "w")
+        pickle.dump(self.shelf, f)
         f.close()
 
     # Funcao usada para a pesquisa de um livro por identificador
